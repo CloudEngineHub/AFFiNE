@@ -186,7 +186,7 @@ jobs:
 
   e2e-blocksuite-test:
     name: E2E BlockSuite Test
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04-arm
     needs: optimize_ci
     if: needs.optimize_ci.outputs.skip == 'false'
     strategy:
@@ -218,7 +218,7 @@ jobs:
 
   e2e-test:
     name: E2E Test
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04-arm
     needs: optimize_ci
     if: needs.optimize_ci.outputs.skip == 'false'
     env:
@@ -227,7 +227,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        shard: [1, 2, 3, 4, 5]
+        shard: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     steps:
       - uses: actions/checkout@v4
       - name: Setup Node.js
